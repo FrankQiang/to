@@ -1,0 +1,23 @@
+Blog\ManageBundle\Entity\IndexWebPage:
+    type: entity
+    table: w_index_web_page
+    id:
+        id:
+            type: integer
+            generator: { strategy: AUTO }
+    fields:
+        user_id:
+            type: integer
+        category_id:
+            type: integer
+        title:
+            type: string
+        url:
+            type: string
+        token:
+            type: string
+            length: 255
+        created_at:
+            type: datetime
+    lifecycleCallbacks:
+        prePersist: [ setCreatedAtValue ]

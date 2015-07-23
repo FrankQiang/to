@@ -1,0 +1,15 @@
+admin_user:
+    path:     /
+    defaults: { _controller: "BlogManageBundle:User:index" }
+
+admin_user_search:
+    path:     /search
+    defaults: { _controller: "BlogManageBundle:User:search" }
+
+admin_user_journal:
+    path:     /journal/{user_id}
+    defaults: { _controller: "BlogManageBundle:User:journal" }
+
+admin_user_blog:
+    path:     /blog/{user_id}
+    defaults: { _controller: "BlogManageBundle:User:blog" }

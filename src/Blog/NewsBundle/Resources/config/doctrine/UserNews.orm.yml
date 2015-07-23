@@ -1,0 +1,22 @@
+Blog\NewsBundle\Entity\UserNews:
+    type: entity
+    table: w_user_news
+    id:
+        id:
+            type: integer
+            generator: { strategy: AUTO }
+    fields:
+        user_id:
+            type: integer
+        news_id:
+            type: integer
+        status:
+            type: boolean
+        created_at:
+            type: datetime
+        updated_at:
+            type: datetime
+            nullable: true
+    lifecycleCallbacks:
+        prePersist: [ setCreatedAtValue ]
+        preUpdate: [ setUpdatedAtValue ]

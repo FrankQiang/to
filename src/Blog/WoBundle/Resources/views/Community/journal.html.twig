@@ -1,0 +1,64 @@
+{% extends '::layout.html.twig' %}
+
+{% block title %}
+        随笔 -轮子
+{% endblock %}
+
+{% block stylesheets %}
+    {{ parent() }}
+<link rel="stylesheet" href="{{ asset('bundles/blogwo/css/index.css') }}" type="text/css" />
+{% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+<script>$(function() {if(($('.header').height()+$('.main').height()+$('.footer').height())<$('body').height())$('.main').css('height','100%');}); </script>
+{% endblock %}
+
+{% block tab %}
+      <a href="{{ path('diary_new') }}" class="hidden-xs btn btn-primary btn-sm navbar-btn navbar-right">撰写随笔</a>
+{% endblock %}
+
+{% block body %}
+<div class="main">
+       <div class="container">
+      	 	<div class="row">
+      	      		<div class="col-md-1"></div>
+      	      		<div class="col-md-10">
+	       		<div class="row">
+                           <div class="col-md-8 side-right">
+                                  {% for entity in entities %}
+                                         <div class="row">
+                                                <div class="col-md-12 blog-info">
+                                                       <div class="list-group">
+                                                        <a href="{{ path('community_journal_show', { 'id': entity.id }) }}" class="list-group-item">
+                                                          <h4 class="list-group-item-heading">{{ entity.title }}</h4>
+                                                          <p class="list-group-item-text">
+                                                          {{ entity.blog }}
+                                                          <div class="more-info pull-right">
+                                                          		<span class="eye" style="padding-right:25px">{{ entity.click }}</span><time>{{ entity.createdAt|date('Y-m-d') }}</time>
+                                                          	</div>
+                                                          </p>    
+                                                        </a>
+                                                       </div>
+                                                </div>
+                                         </div>
+                                  {% endfor %}
+                           </div>
+                           <div class="col-md-4 side-left">
+                                   <div class="index-tree">
+                                      <ul>
+                                        {% for entity in entities %}
+                                                <li><a href="{{ path('community_journal_show', { 'id': entity.id }) }}">{{ entity.title }}</a></li>
+                                         {% endfor %}
+                                      </ul>
+                                  </div>
+                           </div>
+                     </div>
+	              </div>
+	       <div class="col-md-1"></div>
+      	</div>
+</div>
+	
+	
+</div>
+{% endblock %}

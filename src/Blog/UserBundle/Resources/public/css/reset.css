@@ -1,0 +1,23 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 2014-12-24, 15:59:35
+    Author     : lu
+*/
+@CHARSET "UTF-8";
+a:link{color:#30D6EB;text-decoration:none}
+a:visited{color:#30D6EB;text-decoration:none}
+a:hover{color:#30D6EB;text-decoration:none}
+.main{width:500px;margin:50px auto;;border-top:0px;border-bottom: 1px solid #ff8900;border-bottom:#909090 0px solid;background:#fff;color:#333;filter:progid:DXImageTransform.Microsoft.Shadow(color=#909090,direction=120,strength=4);-moz-box-shadow: 2px 2px 5px #909090; -webkit-box-shadow: 2px 2px 5px #909090; box-shadow:2px 2px 5px #909090;padding: 10px;}
+.main .header{height: 80px;margin-bottom: 20px;border-bottom: 1px dotted #dbdbdb}
+.main .header .logo_content{float:left}
+.main .header h2{font-weight: normal;float:right;position: relative;top:32px;right:30px;font-size: 18px}
+.main form{margin-left: 80px;height: 110px;padding-top: 10px}
+.main .submit{margin-top: 50px}
+#username,#fos_user_resetting_form_plainPassword_first,#fos_user_resetting_form_plainPassword_second{padding:2px 8px 0px 3px;height:18px;border:1px solid #CCC;background-color:#FFF;color:#666;font-weight: normal;font-size: 16px;height: 25px;border-radius:2px; }
+#fos_user_resetting_form_plainPassword_first{margin-bottom: 20px;margin-left: 32px}
+.reset_submit{font-size: 14px;width: 68px;height: 34px;line-height: 34px;color: #FFF;text-align: center;cursor: pointer;background-color: #67A1D4;border:0px;position: relative;top:25px;left:319px}
+.reset_submit_change{font-size: 14px;width: 68px;height: 34px;line-height: 34px;color: #FFF;text-align: center;cursor: pointer;background-color: #67A1D4;border:0px;position: relative;top:-10px;left:319px}

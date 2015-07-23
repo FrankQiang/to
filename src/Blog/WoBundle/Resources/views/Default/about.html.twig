@@ -1,0 +1,21 @@
+{% extends '::layout.html.twig' %}
+{% block title %}关于轮子{% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+<script>$(function() {if(($('.header').height()+$('.main').height()+$('.footer').height())<$('body').height())$('.main').css('height','100%');}); </script>
+{% endblock %}
+
+
+{% block body %}
+<div class="main container">
+  <div class="row">
+    <div class="col-md-1"></div>
+    <div class="col-md-10">
+      <div style="font-size:15px">
+        给予热爱的东西予付出!
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

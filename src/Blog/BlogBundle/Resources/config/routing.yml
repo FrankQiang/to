@@ -1,0 +1,19 @@
+blog_blog_diary:
+    resource: "@BlogBlogBundle/Resources/config/routing/diary.yml"
+    prefix:   /diary
+
+blog_blog_blog_article:
+    resource: "@BlogBlogBundle/Resources/config/routing/blogarticle.yml"
+    prefix:   /blog/article
+
+blog_blog_blog:
+    resource: "@BlogBlogBundle/Resources/config/routing/blog.yml"
+    prefix:   /blog
+
+blog_blog_image:
+    resource: "@BlogBlogBundle/Resources/config/routing/image.yml"
+    prefix:   /image
+
+blog_blog_homepage:
+    path:     /hello/{name}
+    defaults: { _controller: BlogBlogBundle:Default:index }

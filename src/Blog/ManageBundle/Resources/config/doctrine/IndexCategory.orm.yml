@@ -1,0 +1,23 @@
+Blog\ManageBundle\Entity\IndexCategory:
+    type: entity
+    table: w_index_category
+    id:
+        id:
+            type: integer
+            generator: { strategy: AUTO }
+    fields:
+        user_id:
+            type: integer
+        title:
+            type: string
+        token:
+            type: string
+            length: 255
+        created_at:
+            type: datetime
+        updated_at:
+            type: datetime
+            nullable: true
+    lifecycleCallbacks:
+        prePersist: [ setCreatedAtValue ]
+        preUpdate: [ setUpdatedAtValue ]

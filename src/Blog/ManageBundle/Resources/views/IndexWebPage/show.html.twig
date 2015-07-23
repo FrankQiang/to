@@ -1,0 +1,49 @@
+{% extends 'BlogBlogBundle::layoutArticle.html.twig' %}
+{% block title %}
+                  首页管理-轮子
+{% endblock %}
+
+{% block header %}
+                    <div style="margin-top:15px"><a href="{{ path('blog_wo_homepage') }}" class="brand">轮子</a></div>
+                    <div style="height:15px"></div>
+                    <ul class="nav pull-right">     
+                         <li style="margin-right:15px"><a href="{{ path('index_category') }}">查看所有</a></li>
+                         <li><a href="{{ path('fos_user_security_logout') }}">退出</a></li>
+                   </ul>
+{% endblock %}
+
+{% block javascripts %}
+   {{ parent() }}
+     <script>$(function() {$('textarea').remove();if(($('.header').height()+$('.main').height()+$('.footer').height())<$('body').height())$('.main').css('height','100%');}); </script>
+{% endblock %}
+
+{% block body -%}
+<div class="container main">
+        <div class="row"  style="padding-top: 20px;">
+            <legend>分类管理</legend>
+            <div class="span9">
+                <div>{{entity.title}}</div>
+            </div>
+            <div class="span3">
+                <div>
+                          <ul class="nav nav-pills pull-right">
+                                 <li role="presentation">{{ form(delete_form) }}</li>
+                          </ul>
+                    </div>
+            </div>
+        </div>
+        <div class="row">     
+                    {% for entity in webpages %}                           
+                                  <div class="span10">
+                                          <div class="well">
+                                                <div class="pull-right"><a href="{{ path('index_webpage_edit', { 'token': entity.token }) }}">编辑</a></div>
+                                                <a href="{{entity.url}}" target="_blank">{{ entity.title }}</a>
+                                          </div>
+                                  </div>     
+                     {% endfor %}                          
+                    </div>
+        <div class="row">
+          <a href="{{ path('index_webpage_new', { 'id': entity.id }) }}"><span class="icon-plus-sign"></span>添加网页</a>
+        </div>
+    </div>
+{% endblock %}

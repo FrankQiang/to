@@ -1,0 +1,41 @@
+{% extends 'BlogBlogBundle::layout.html.twig' %}
+{% block title %}
+                  与世界分享你的经验-轮子
+{% endblock %}
+
+{% block header %}
+                    <div style="margin-top:15px"><a href="{{ path('blog_wo_homepage') }}" class="brand">轮子</a></div>
+                    <div style="height:15px"></div>
+                    <ul class="nav pull-right">     
+                         <li style="margin-right:15px"><a href="{{ path('blog_new') }}">新建</a></li>
+                         <li class="active"  style="margin-right:15px"><a href="{{ path('blog') }}">管理</a></li>
+                         <li><a href="{{ path('fos_user_security_logout') }}">退出</a></li>
+                   </ul>
+{% endblock %}
+
+{% block javascripts %}
+{{ parent() }}
+<script>$(function() {if(($('.header').height()+$('.main').height()+$('.footer').height())<$('body').height())$('.main').css('height','100%');}); </script>
+  {% endblock %}     
+
+{% block body -%}
+
+<div class="container main">
+      	<div class="row" style="padding-top: 20px;">
+    		<legend>Hello {{app.user.username}}</legend>
+    		<div class="span12">
+    			<div class="row">
+    				{% for entity in entities %}
+    				<div class="span6">
+    					<div class="row">
+    						<div class="span5 well">
+    							<a href="{{ path('blog_article', { 'token': entity.token }) }}">{{ entity.title }}</a>
+    						</div>
+    					</div>        
+             			</div>
+             			{% endfor %}
+        		</div>
+            </div>
+       </div>
+</div>
+{% endblock %}

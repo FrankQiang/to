@@ -1,0 +1,36 @@
+Blog\BlogBundle\Entity\Diary:
+    type: entity
+    repositoryClass: Blog\BlogBundle\Repository\DiaryRepository
+    table: w_diary
+    id:
+        id:
+            type: integer
+            generator: { strategy: AUTO }
+    fields:
+        user_id:
+            type: integer
+        title:
+            type: string
+            nullable: true
+        blog:
+            type: text
+        tag:
+            type: text
+            nullable: true
+        click:
+            type: integer
+            nullable: true
+        token:
+            type: string
+            length: 255
+        created_at:
+            type: datetime
+        updated_at:
+            type: datetime
+            nullable: true
+    lifecycleCallbacks:
+        prePersist: [ setCreatedAtValue ]
+        preUpdate: [ setUpdatedAtValue ]
+        postPersist: [ updateLuceneIndex ]
+        postUpdate: [ updateLuceneIndex ]
+        postRemove: [ deleteLuceneIndex ]

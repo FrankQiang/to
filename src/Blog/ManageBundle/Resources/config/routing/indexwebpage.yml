@@ -1,0 +1,30 @@
+index_webpage:
+    path:     /
+    defaults: { _controller: "BlogManageBundle:IndexWebPage:index" }
+
+index_webpage_new:
+    path:     /new/{id}
+    defaults: { _controller: "BlogManageBundle:IndexWebPage:new" }
+
+index_webpage_show:
+    path:     /{token}/show
+    defaults: { _controller: "BlogManageBundle:IndexWebPage:show" }
+
+index_webpage_create:
+    path:     /create
+    defaults: { _controller: "BlogManageBundle:IndexWebPage:create" }
+    methods:  POST
+
+index_webpage_edit:
+    path:     /{token}/edit
+    defaults: { _controller: "BlogManageBundle:IndexWebPage:edit" }
+
+index_webpage_update:
+    path:     /{token}/update
+    defaults: { _controller: "BlogManageBundle:IndexWebPage:update" }
+    methods:  [POST, PUT]
+
+index_webpage_delete:
+    path:     /{token}/delete
+    defaults: { _controller: "BlogManageBundle:IndexWebPage:delete" }
+    methods:  [POST, DELETE]

@@ -1,0 +1,30 @@
+blog_article:
+    path:     /manage/{token}
+    defaults: { _controller: "BlogBlogBundle:BlogArticle:index" }
+
+blog_article_show:
+    path:     /{token}/show
+    defaults: { _controller: "BlogBlogBundle:BlogArticle:show" }
+
+blog_article_new:
+    path:     /new/{id}
+    defaults: { _controller: "BlogBlogBundle:BlogArticle:new" }
+
+blog_article_create:
+    path:     /create
+    defaults: { _controller: "BlogBlogBundle:BlogArticle:create" }
+    methods:  POST
+
+blog_article_edit:
+    path:     /{token}/edit
+    defaults: { _controller: "BlogBlogBundle:BlogArticle:edit" }
+
+blog_article_update:
+    path:     /{token}/update
+    defaults: { _controller: "BlogBlogBundle:BlogArticle:update" }
+    methods:  [POST, PUT]
+
+blog_article_delete:
+    path:     /{token}/delete
+    defaults: { _controller: "BlogBlogBundle:BlogArticle:delete" }
+    methods:  [POST, DELETE]

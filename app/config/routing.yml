@@ -1,0 +1,22 @@
+blog_news:
+    resource: "@BlogNewsBundle/Resources/config/routing.yml"
+    prefix:   /
+    
+blog_manage:
+    resource: "@BlogManageBundle/Resources/config/routing.yml"
+    prefix:   /
+
+blog_wo:
+    resource: "@BlogWoBundle/Resources/config/routing.yml"
+    prefix:   /
+
+blog_user:
+    resource: "@BlogUserBundle/Resources/config/routing.yml"
+    prefix:   /
+
+blog_blog:
+    resource: "@BlogBlogBundle/Resources/config/routing.yml"
+    prefix:   /
+
+fos_user:
+    resource: "@FOSUserBundle/Resources/config/routing/all.xml"

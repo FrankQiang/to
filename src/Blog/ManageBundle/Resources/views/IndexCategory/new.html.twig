@@ -1,0 +1,43 @@
+{% extends 'BlogBlogBundle::layout.html.twig' %}
+{% block title %}
+                  首页管理-轮子
+{% endblock %}
+
+ {% block javascripts %}
+   {{ parent() }}
+     <script>$(function() {if(($('.header').height()+$('.main').height()+$('.footer').height())<$('body').height())$('.main').css('height','100%');}); </script>
+{% endblock %}
+
+{% block header %}
+       <div style="margin-top:15px"><a href="{{ path('blog_wo_homepage') }}" class="brand">轮子</a></div>
+       <div style="height:15px"></div>
+       <ul class="nav pull-right">     
+             <li class="active" style="margin-right:15px"><a href="{{ path('index_category_new') }}">新建</a></li>
+             <li style="margin-right:15px"><a href="{{ path('index_category') }}">管理</a></li>
+             <li><a href="{{ path('fos_user_security_logout') }}">退出</a></li>
+      </ul>
+{% endblock %}
+
+{% block body -%}
+<div class="container main">
+<div class="row" style="padding-top: 20px;">
+             <legend>创建类名</legend>
+             <div class="span7">
+                   <form action="{{ path('index_category_create') }}" method="post" {{ form_enctype(form) }}>
+                           <div class="row">
+                           <h5>标题</h5>
+	                          	<div class="span">
+	                          		{{ form_errors(form.title) }}
+                                  	 {{ form_widget(form.title) }}
+	                          	</div>
+	                          	<div class="btn-group btn-group-justified  pull-right" role="group">
+                                		<div class="btn-group" role="group">
+                                      	{{ form_widget(form.submit) }}
+                                		</div>
+                          		</div>
+                          </div>
+                           {{ form_end(form) }} 
+             </div>    
+      </div>
+</div>
+{% endblock %}

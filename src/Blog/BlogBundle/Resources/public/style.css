@@ -1,0 +1,23 @@
+a{
+	color: #005580;
+}
+
+a:hover{
+	text-decoration: none;
+	color: #08C;
+}
+html, body{
+    height:100%;
+}
+
+
+.footer {
+	margin-top: 100px;
+	padding: 25px 0px 30px 0px;
+	background-color: #171819;
+
+}
+
+.footer span {
+	margin-right: 25px;
+}

@@ -1,0 +1,26 @@
+{% block subject %}轮子重置密码,{{ user.username }}{% endblock %}
+
+{% block body_text %}
+{% autoescape false %}
+亲爱的{{ user.username }}，你好：
+
+ 很高兴您使用轮子。
+ 
+ 请在24小时内点击以下链接重置您的密码：
+ 
+ {{ confirmationUrl }}
+
+{% endautoescape %}
+{% endblock %}
+
+{% block body_html %}
+<div>
+                亲爱的{{ user.username }}，你好：
+                <br/><br/>
+                很高兴您使用轮子。
+                <br/><br/>
+                请在24小时内点击以下链接重置您的密码：
+                <br/><br/>
+                <a href="{{confirmationUrl}}">{{confirmationUrl}}</a>
+            </div>
+{% endblock %}

@@ -1,0 +1,178 @@
+body{
+	padding-top: 100px;
+}
+
+html, body{
+    height:100%;
+}
+
+a {
+    color:#FF8A00;
+}
+
+a:hover {
+    color:#FF8A00;
+}
+
+
+.navbar-inverse .navbar-form{
+	position: relative;
+}
+
+.navbar-inverse button[type="submit"] {
+	position: absolute;
+	top:25%;
+	right: 20px;
+	height: 25px;
+	background: #fff;
+	border: none;
+}
+
+@media(min-width: 758px)  {
+	.navbar-inverse button[type="submit"] {
+	top:15%;
+      }
+}
+
+.navbar-inverse .glyphicon {
+	color: #999;
+}
+
+.main {
+	padding-bottom:15px;
+}
+
+.aside .item {
+	padding-bottom:15px;
+}
+
+.bike-more {
+	float:right;
+	width:100px;
+}
+
+.play-cycle {
+	border-bottom: 1px solid #d7d7d7;
+	margin: 0 20px 30px 20px;
+}
+
+.play-cycle h2 {
+	font-weight: normal;
+	font-size: 20px;
+	background-color: #fff;
+	margin: 0 auto;
+	padding: 0 10px;
+	position: relative;
+	bottom: -10px;
+	width: 65px;
+}
+
+.right-content a {
+	color: #333;
+}
+
+.right-content h2 {
+	font-weight: normal;
+	font-size: 20px;
+}
+
+.right-content .row {
+	margin-bottom: 20px;
+	padding-bottom: 20px;
+	border-bottom: 1px solid silver;
+}
+
+.right-content .bike-info h3{
+	font-weight: normal;
+	font-size: 17px;
+	margin-top: 10px;
+}
+.right-content .bike-info p {
+	color: #888;
+}
+
+.right-content .bike-info .price,
+.right-content .bike-inro .city,
+.right-content .bike-info .area{
+	padding-left: 25px;
+}
+
+.right-content .bike-info .price {
+	color: #FF8900;
+	padding-right: 25px;
+}
+
+.right-content .row .col-md-4 {
+	padding: 3px;
+	
+}
+.fr span {
+	margin-right: 20px;
+	font: 14px/1.5 "Helvetica Neue",Helvetica,Arial,"Hiragino Sans GB",宋体,sans-serif;
+}
+
+.view_times{background: url(../images/eye.jpg) no-repeat;padding:0px 5px 0px 25px}
+.reply_times{background: url(../images/reply.jpg) no-repeat;padding:2px 2px 2px 28px}
+.like{background: url(../images/like.jpg) no-repeat;padding:0 5px 2px 22px}
+
+.play-cycle-content h3 {
+	font-size: 15px;
+	line-height: 30px;
+	margin-top: 10px;
+}
+
+.play-cycle-info span,
+.play-cycle-info time {
+	margin-right: 10px;
+	color: #888;
+}
+
+.play-cycle-info img {
+	width:32px;
+}
+
+.play-cycle-info p {
+	margin-top: 10px;
+	color: #888;
+}
+
+.bike-more a{
+	color: #fff;
+}
+
+.main-content {
+	margin-bottom: 60px;
+}
+
+.footer {
+	background-color: #2D2D2D;
+}
+
+.footer h2 {
+	font-weight: normal;
+	font-size: 20px;
+}
+
+.footer img{
+	width: 145px;
+}
+
+.footer a {
+	color: #666;
+}
+
+.footer .word-info h2{
+	margin-bottom: 30px;
+}
+
+
+.footer-about {
+	padding: 25px 0px 30px 0px;
+	background-color: #171819;
+}
+
+.footer-about span {
+	margin-right: 25px;
+}
+
+

@@ -1,0 +1,20 @@
+news:
+    path:     /
+    defaults: { _controller: "BlogNewsBundle:News:index" }
+
+news_date:
+    path:     /date/{date}
+    defaults: { _controller: "BlogNewsBundle:News:date" }
+
+news_new:
+    path:     /new
+    defaults: { _controller: "BlogNewsBundle:News:new" }
+
+news_create:
+    path:     /create
+    defaults: { _controller: "BlogNewsBundle:News:create" }
+
+news_page:
+    path:     /page/{page}
+    defaults: { _controller: "BlogNewsBundle:News:page" }
+

@@ -1,0 +1,94 @@
+{% extends 'BlogBlogBundle::layout.html.twig' %}
+{% block title %}
+                  与世界分享你的经验-轮子
+{% endblock %}
+
+{% block javascripts %}
+   {{ parent() }}
+     <script type="text/javascript"  src="{{ asset('bundles/blogblog/bootstrap/js/markdown.js') }}"></script>
+     <script type="text/javascript"  src="{{ asset('bundles/blogblog/bootstrap/js/markdown-editor.js') }}"></script>
+     <script>$(function() {$('#blog_blogbundle_blogarticle_blog').markdown();}); </script>
+     <script>$(function() {if(($('.header').height()+$('.main').height()+$('.footer').height())<$('body').height())$('.main').css('height','100%');}); </script>
+{% endblock %}
+
+{% block header %}
+       <div style="margin-top:15px"><a href="{{ path('blog_wo_homepage') }}" class="brand">轮子</a></div>
+       <div style="height:15px"></div>
+       <ul class="nav pull-right">     
+              <li class="active"  style="margin-right:15px"><a href="{{ path('blog_article_edit', { 'token': entity.token }) }}">编辑</a></li>
+              <li style="margin-right:15px"><a href="{{ path('blog') }}">管理</a></li>
+              <li><a href="{{ path('fos_user_security_logout') }}">退出</a></li>
+       </ul>
+{% endblock %}
+
+{% block body -%}
+   
+<div class="container main">
+	<div class="row"  style="padding-top: 20px;">
+	      <legend>Hello {{app.user.username}}</legend>
+		<div class="span7">
+			<form  method="post" action="{{ path('blog_article_update', { 'token': entity.token }) }}">
+				<input type="hidden" name="_method" value="PUT" />
+				<fieldset>
+		                    <div class="title">
+		                          {{ form_label(edit_form.title) }}
+				             {{ form_errors(edit_form.title) }}
+		                          {{ form_widget(edit_form.title) }}
+			             </div>
+		                   <div class="blog">
+				  	       {{ form_errors(edit_form.blog) }}
+		                          {{ form_widget(edit_form.blog) }}
+			             </div>
+		             </fieldset>
+		             <div class="btn-group btn-group-justified  pull-right" role="group">
+		                   <div class="btn-group" role="group">
+		                          {{ form_widget(edit_form.submit) }}
+		                   </div>
+		             </div>
+			{{ form_end(edit_form) }}
+			<div class="btn-group btn-group-justified" role="group">
+	                   <div class="btn-group" role="group">
+	                          {{ form(delete_form) }}
+	                   </div>
+	              </div>
+			
+		</div>
+		<div class="span1"></div>
+                <div class="span4">
+                <div class="panel">
+                    <div class="panel-heading">开源精神</div>
+                    <div class="panel-inner">
+                        <dl class="alert alert-info">
+                        <dd>
+                        开源-拿来主义:
+                        <br>
+                        <br>
+                        省去重复开发,探索成本
+                        <br>
+                        <br>
+                        扩充见识和想法
+                        <br>
+                        <br>
+                        而不会成为井底之蛙还茫然自得。
+                        <br>
+                        
+                        <br>
+                        </dd>
+                        </dl>
+                    </div>
+                    
+                </div>
+                
+
+                <div class="about-markdown">
+                          <ul class="nav nav-pills">
+                                 <li role="presentation"><a href="#" target="_blank"><span style="padding-right:210px">学习该编辑器</span></a></li>
+                          </ul>
+                    </div>
+            
+                </div>
+	</div>
+</div>
+    
+
+{% endblock %}

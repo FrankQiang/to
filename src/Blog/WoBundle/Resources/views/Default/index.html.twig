@@ -1,0 +1,91 @@
+{% extends '::layout.html.twig' %}
+{% block title %}导航 -轮子{% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+<script>$(function() {if(($('.header').height()+$('.main').height()+$('.footer').height())<$('body').height())$('.main').css('height','100%');}); </script>
+<script type="text/javascript"  src="{{ asset('bundles/blogwo/js/turn_news.js') }}"></script>
+{% endblock %}
+
+{% block stylesheets %}
+    {{ parent() }}
+<link rel="stylesheet" href="{{ asset('bundles/blogwo/css/homepage.css') }}" type="text/css" />
+{% endblock %}
+
+
+{% block body %}
+<div class="main container">
+    <div class="row">
+        <div class="col-md-2"></div>
+        <div class="col-md-10">
+      <div>
+             <form action="http://www.baidu.com/baidu" target="_blank">
+              <div class="row">
+                <div class="col-md-2" style="margin-right:-50px">
+                    <input name="tn" type="hidden" value="baidu">
+                    <a href="http://www.baidu.com/"><img src="{{ asset('bundles/blogwo/images/web.png') }}" alt="Baidu" align="bottom" border="0"></a>
+                  </div>
+                  <div class="col-md-6">
+                    <input type="text" style="width:480px" class="form-control" name="word" size="30" baiduSug="1">
+                  </div>
+                  <div class="col-md-3">
+                    <input type="submit"  class="btn btn-info" value="百度搜索">
+                  </div>
+              </div>
+        </form>
+      </div>
+          </div>
+    </div>
+    <div class="row" style="padding-top:50px;margin-bottom:100px">
+      <div class="col-md-3 left-content" style="padding-top:30px">
+      <div class="left-news">
+        <div class="news-content">
+        <div class="turn-news">
+          <a href='javascript:turn("{{ path('news_page', { 'page': page }) }}")'><span class='glyphicon glyphicon-repeat'></span><span class="turn-text">换一换</span></a>
+          </div>
+        {% for new in news %}
+        <div class="panel panel-default">
+	  <div class="panel-body">
+	    <a href="{{ new.url }}" target = "_blank">{{new.title}} </a>
+	  </div>
+	  <div class="panel-footer">
+	  	{% if userNews[new.id] == 1 %}
+	  	<a style="color: red;" class="{{ new.id }}like" href='javascript:like("{{ path('user_news_status_like', { 'id': new.id }) }}",{{ new.id }})'><span class="glyphicon glyphicon-heart  btn-lg"></span></a>
+	  	{% else %}
+	  	<a class="{{ new.id }}like heart" href='javascript:like("{{ path('user_news_status_like', { 'id': new.id }) }}",{{ new.id }})'><span class="glyphicon glyphicon-heart  btn-lg"></span></a>
+	  	{% endif %}
+	  	{% if userNews[new.id] ==0 %}
+	  	<a style="color: black;" class="{{ new.id }}dislike" href='javascript:dislike("{{ path('user_news_status_dislike', { 'id': new.id }) }}",{{ new.id }})'><span class="glyphicon glyphicon-trash  btn-lg"></span></a>
+	  	{% else %}
+	  	<a class="{{ new.id }}dislike trash" href='javascript:dislike("{{ path('user_news_status_dislike', { 'id': new.id }) }}",{{ new.id }})'><span class="glyphicon glyphicon-trash  btn-lg"></span></a>
+	  	{% endif %}
+	  </div>
+	</div>
+          
+        {% endfor %}
+      </div>
+      </div>
+      <div class="more-news">
+        <a href="{{ path('news') }}" target="_blank"><span>>>更多</span></a>
+      </div>
+      
+      </div>
+      <div class="col-md-9">
+      {% for entity in entities%}
+      <div class="category-webadd">
+      		<span style="font-size:16px">{{ entity.title }}</span><a href="{{ path('index_webpage_new', { 'id': entity.id }) }}" class="pull-right add-webpage" target="_blank" ><span class="glyphicon glyphicon-plus"></span>添加</a>
+      	</div>
+        <div style="padding:14px 0px 50px 0px" class="btn-group btn-group-justified" role="group">
+          {% for webpage in webpages[entity.id] %}
+           <a href="{{webpage.url}}" class="btn btn-default" role="button" target="_blank">{{ webpage.title }}</a>
+          {% endfor %}
+      </div>
+      {% endfor %}
+
+      <div><a href="{{ path('index_category_new') }}" style= "margin-top:50px" class="btn btn-info pull-right" target="_blank">添加分类</a></div>
+      
+      </div>
+    </div>
+</div>
+<script charset="gbk" src="http://www.baidu.com/js/opensug.js"></script>
+{% endblock %}

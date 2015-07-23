@@ -1,0 +1,45 @@
+{% extends '::base.html.twig' %}
+
+{% block body -%}
+    <h1>IndexWebPage list</h1>
+
+    <table class="records_list">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>User_id</th>
+                <th>Category_id</th>
+                <th>Title</th>
+                <th>Url</th>
+                <th>Created_at</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for entity in entities %}
+            <tr>
+                <td>{{ entity.userid }}</td>
+                <td>{{ entity.categoryid }}</td>
+                <td>{{ entity.title }}</td>
+                <td>{{ entity.url }}</td>
+                <td>{% if entity.createdat %}{{ entity.createdat|date('Y-m-d H:i:s') }}{% endif %}</td>
+                <td>
+                <ul>
+                    <li>
+                    </li>
+                    <li>
+                    </li>
+                </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+        <ul>
+        <li>
+                Create a new entry
+            </a>
+        </li>
+    </ul>
+    {% endblock %}

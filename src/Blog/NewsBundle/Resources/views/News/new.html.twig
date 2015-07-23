@@ -1,0 +1,16 @@
+{% extends '::layout.html.twig' %}
+
+{% block title %}
+                   新闻-轮子
+{% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+<script>$(function() {if(($('.header').height()+$('.main').height()+$('.footer').height())<$('body').height())$('.main').css('height','100%');}); </script>
+{% endblock %}
+
+{% block body -%}
+<div class="main container">
+    <a href="{{ path('news_create') }}"><span class='glyphicon glyphicon-plus'></span>add data</a>
+</div>
+{% endblock %}

@@ -1,0 +1,16 @@
+blog_wo_homepage:
+    path:     /
+    defaults: { _controller: BlogWoBundle:Default:index }
+
+blog_wo_about:
+    path:     /about
+    defaults: { _controller: BlogWoBundle:Default:about }
+
+blog_wo_community:
+    resource: "@BlogWoBundle/Resources/config/routing/community.yml"
+    prefix:   /community
+
+blog_wo_search:
+    resource: "@BlogWoBundle/Resources/config/routing/search.yml"
+    prefix:   /search
+

@@ -1,0 +1,16 @@
+blog_manage_index_webpage:
+    resource: "@BlogManageBundle/Resources/config/routing/indexwebpage.yml"
+    prefix:   /index/webpage
+
+blog_manage_index_category:
+    resource: "@BlogManageBundle/Resources/config/routing/indexcategory.yml"
+    prefix:   /index/category
+
+blog_admin_user:
+    resource: "@BlogManageBundle/Resources/config/routing/user.yml"
+    prefix:   /admin/user
+
+blog_manage_homepage:
+    path:     /hello/{name}
+    defaults: { _controller: BlogManageBundle:Default:index }
+

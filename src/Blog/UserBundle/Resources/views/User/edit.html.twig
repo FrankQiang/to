@@ -1,0 +1,66 @@
+{% extends 'BlogBlogBundle::layout.html.twig' %}
+{% block title %}
+                  账号设置-轮子
+{% endblock %}
+
+{% block header %}
+                    <div style="margin-top:15px"><a href="{{ path('blog_wo_homepage') }}" class="brand">轮子</a></div>
+                    <div style="height:15px"></div>
+                    <ul class="nav pull-right">     
+                         <li style="margin-right:15px"><a href="{{ path('user_show') }}">查看</a></li>
+                         <li class="active" style="margin-right:15px"><a href="{{ path('user_edit', { 'token': app.user.token }) }}">编辑</a></li>
+                         <li style="margin-right:15px"><a href="{{ path('fos_user_change_password')}}">修改密码</a></li>
+                         <li style="margin-right:15px"><a href="{{ path('fos_user_profile_edit')}}">修改邮箱/用户名</a></li>
+                         <li><a href="{{ path('fos_user_security_logout') }}">退出</a></li>
+                   </ul>
+{% endblock %}
+
+{% block javascripts %}
+{{ parent() }}
+<script src="http://tjs.sjs.sinajs.cn/open/api/js/wb.js?appkey=175468788" type="text/javascript" charset="utf-8"></script>
+<script>$(function() {if(($('.header').height()+$('.main').height()+$('.footer').height())<$('body').height())$('.main').css('height','100%');}); </script>
+<script>
+    function login(o) {
+      var str = o.location;
+      var strs = str.split(' ');
+      $('#acme_userbundle_user_username').val(o.screen_name);
+      $('#acme_userbundle_user_photo').val(o.profile_image_url);
+      $('#acme_userbundle_user_weibo_id').val(o.id);
+
+  }
+    </script>
+  {% endblock %}
+
+{% block body -%}
+ <div class="container main">
+       <div class="row" style="padding-top: 20px;">
+             <legend>Hello {{app.user.username}}</legend>
+             <div class="span12">
+                     <form action="{{ path('user_update', { 'token': app.user.token }) }}" method="post" >
+             <div id="acme_userbundle_user">
+                  <input name="_method" value="PUT" type="hidden">
+                  <div class="row">
+                    <div class="span5">
+                            <h5>微博ID</h5>
+                          {{ form_errors(edit_form.weibo_id) }}
+                           {{ form_widget(edit_form.weibo_id) }}
+                    </div>
+                    <div class="span5">
+                      <div class="weibo" style="margin-top:25px">
+                                           <div style="margin-bottom:10px">微博关联 , 获取关键信息</div>
+                                           <wb:login-button type="3,2" onlogin="login" onlogout="logout">登录按钮</wb:login-button>
+                                      </div>
+                    </div>
+                  </div>
+                          
+             </div>
+    {{ form_end(edit_form) }}
+             </div>
+    </div>
+</div>
+    {% endblock %}
+        
+
+
+       
+

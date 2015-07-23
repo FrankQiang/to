@@ -1,0 +1,19 @@
+Blog\NewsBundle\Entity\News:
+    type: entity
+    repositoryClass: Blog\NewsBundle\Repository\NewsRepository
+    table: w_news
+    id:
+        id:
+            type: integer
+            generator: { strategy: AUTO }
+    fields:
+        title:
+            type: string
+            length: 255
+        url:
+            type: string
+            length: 255
+        created_at:
+            type: datetime
+    lifecycleCallbacks:
+        prePersist: [ setCreatedAtValue ]

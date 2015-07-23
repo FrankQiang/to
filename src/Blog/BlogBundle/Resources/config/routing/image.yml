@@ -1,0 +1,5 @@
+blog_image_upload:
+    path:     /upload
+    defaults: { _controller: "BlogBlogBundle:BlogImage:upload" }
+    methods:  POST
+

@@ -1,0 +1,55 @@
+{% extends 'BlogBlogBundle::layoutArticle.html.twig' %}
+{% block title %}
+                  与世界分享你的经验-轮子
+{% endblock %}
+
+{% block stylesheets %}
+    {{ parent() }}
+<link rel="stylesheet" href="{{ asset('bundles/blogwo/css/img.css') }}" type="text/css" />
+<link rel="stylesheet" href="{{ asset('bundles/blogblog/css/article.css') }}" type="text/css" />
+{% endblock %}
+
+{% block header %}
+                    <div style="margin-top:15px"><a href="{{ path('blog_wo_homepage') }}" class="brand">轮子</a></div>
+                    <div style="height:15px"></div>
+                    <ul class="nav pull-right">     
+                         <li class="active"  style="margin-right:15px"><a href="{{ path('blog_article', { 'token': entity.token }) }}">查看</a></li>
+                         <li style="margin-right:15px"><a href="{{ path('blog') }}">管理</a></li>
+                         <li><a href="#">退出</a></li>
+                   </ul>
+{% endblock %}
+
+{% block javascripts %}
+   {{ parent() }}
+     <script>$(function() {$('.preview').append($('textarea').text());$('textarea').remove();if(($('.header').height()+$('.main').height()+$('.footer').height())<$('body').height())$('.main').css('height','100%');}); </script>
+{% endblock %}
+
+{% block body -%}
+<div class="container main">
+       <div class="row"  style="padding-top: 20px;">
+              <div class="span3">
+                     <div class="side-left">
+                           <div class="title">
+                                  <h4>
+                                        <a href="{{ path('blog_article', { 'token': entity.token }) }}">{{ entity.title }}</a>
+                                  </h4>
+                           </div>
+                           <div class="article-tree">
+                                  <ul>
+                                      {% for article in articles %}
+                                      <li><a href="{{ path('blog_article_show', { 'token': article.token }) }}">{{ article.title }}</a></li>
+                                      {% endfor %}
+                                       <li><a href="{{ path('blog_article_new', { 'id': entity.id }) }}"><span class="icon-plus-sign"></span>添加章节</a></li>
+                                  </ul>
+                           </div>
+                    </div>  
+              </div>
+              <div class="span9">
+                     <div class="pull-right" ><a href="{{ path('blog_edit', { 'token': entity.token }) }}">编辑</a></div>
+                     <legend>{{entity.title}}</legend>
+                     <div class="preview"></div>
+                     <textarea>{{entity.blog}}</textarea>
+              </div>
+       </div>
+</div>
+{% endblock %}

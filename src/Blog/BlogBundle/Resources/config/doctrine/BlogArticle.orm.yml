@@ -1,0 +1,28 @@
+Blog\BlogBundle\Entity\BlogArticle:
+    type: entity
+    table: w_blog_article
+    id:
+        id:
+            type: integer
+            generator: { strategy: AUTO }
+    fields:
+        user_id:
+            type: integer
+        article_id:
+            type: integer
+        title:
+            type: string
+            nullable: true
+        blog:
+            type: text
+        token:
+            type: string
+            length: 255
+        created_at:
+            type: datetime
+        updated_at:
+            type: datetime
+            nullable: true
+    lifecycleCallbacks:
+        prePersist: [ setCreatedAtValue ]
+        preUpdate: [ setUpdatedAtValue ]

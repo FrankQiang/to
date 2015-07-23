@@ -1,0 +1,25 @@
+<div class="news-content">
+        <div  class="turn-news">
+          <a href='javascript:turn("{{ path('news_page', { 'page': page }) }}")'><span class='glyphicon glyphicon-repeat'></span><span class="turn-text">换一换</span></a>
+          </div>
+        {% for new in news %}
+        <div class="panel panel-default">
+	  <div class="panel-body">
+	    <a href="{{ new.url }}" target = "_blank">{{new.title}} </a>
+	  </div>
+	  <div class="panel-footer">
+	  	{% if userNews[new.id] == 1 %}
+	  	<a style="color: red;" class="{{ new.id }}like" href='javascript:like("{{ path('user_news_status_like', { 'id': new.id }) }}",{{ new.id }})'><span class="glyphicon glyphicon-heart  btn-lg"></span></a>
+	  	{% else %}
+	  	<a class="{{ new.id }}like heart" href='javascript:like("{{ path('user_news_status_like', { 'id': new.id }) }}",{{ new.id }})'><span class="glyphicon glyphicon-heart  btn-lg"></span></a>
+	  	{% endif %}
+	  	{% if userNews[new.id] ==0 %}
+	  	<a style="color: black;" class="{{ new.id }}dislike" href='javascript:dislike("{{ path('user_news_status_dislike', { 'id': new.id }) }}",{{ new.id }})'><span class="glyphicon glyphicon-trash  btn-lg"></span></a>
+	  	{% else %}
+	  	<a class="{{ new.id }}dislike trash" href='javascript:dislike("{{ path('user_news_status_dislike', { 'id': new.id }) }}",{{ new.id }})'><span class="glyphicon glyphicon-trash  btn-lg"></span></a>
+	  	{% endif %}
+	  </div>
+	</div>
+          
+        {% endfor %}
+      </div>

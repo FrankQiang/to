@@ -1,0 +1,11 @@
+blog_news_user_news_status:
+    resource: "@BlogNewsBundle/Resources/config/routing/usernews.yml"
+    prefix:   /user/news/status
+
+blog_news_news:
+    resource: "@BlogNewsBundle/Resources/config/routing/news.yml"
+    prefix:   /news
+
+blog_news_homepage:
+    path:     /hello/{name}
+    defaults: { _controller: BlogNewsBundle:Default:index }

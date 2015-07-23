@@ -1,0 +1,37 @@
+{% extends 'BlogBlogBundle::layout.html.twig' %}
+{% block title %}
+                  与世界分享你的经验-轮子
+{% endblock %}
+
+{% block header %}
+                    <div style="margin-top:15px"><a href="{{ path('community_blog') }}" class="brand">轮子</a></div>
+                    <div style="height:15px"></div>
+                    <ul class="nav pull-right">     
+                         <li><a href="{{ path('fos_user_security_logout') }}">退出</a></li>
+                   </ul>
+{% endblock %}
+
+{% block javascripts %}
+{{ parent() }}
+<script>$(function() {if(($('.header').height()+$('.main').height()+$('.footer').height())<$('body').height())$('.main').css('height','100%');}); </script>
+  {% endblock %}     
+
+{% block body -%}
+
+<div class="container main">
+       <div class="row" style="padding-top: 20px;">
+              <legend>{{user.username}}的攻略</legend>
+              <div class="span12">
+                     <div class="row">
+                     {% for entity in entities %}
+                           <div class="span10">
+                                  <div class="well">
+                                         <a href="{{ path('blog_article', { 'token': entity.token }) }}">{{ entity.title }}</a>
+                                  </div>
+                            </div> 
+                     {% endfor %}
+                    </div>
+              </div>
+       </div>
+</div>
+    {% endblock %}

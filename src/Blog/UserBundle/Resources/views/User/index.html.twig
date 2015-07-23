@@ -1,0 +1,42 @@
+{% extends 'BlogBlogBundle::layout.html.twig' %}
+{% block title %}
+                  我的主页-轮子
+{% endblock %}
+
+{% block header %}
+                    <div style="margin-top:15px"><a href="{{ path('blog_wo_homepage') }}" class="brand">轮子</a></div>
+                    <div style="height:15px"></div>
+                    <ul class="nav pull-right">     
+                         <li class="active"  style="margin-right:15px"><a href="javascript:void(0)">随笔</a></li>
+                         <li  style="margin-right:15px"><a href="{{ path('blog') }}">教程</a></li>
+                         <li><a href="{{ path('fos_user_security_logout') }}">退出</a></li>
+                   </ul>
+{% endblock %}
+
+{% block javascripts %}
+{{ parent() }}
+<script>$(function() {if(($('.header').height()+$('.main').height()+$('.footer').height())<$('body').height())$('.main').css('height','100%');}); </script>
+  {% endblock %}
+
+{% block body -%}
+ <div class="container main">
+       <div class="row" style="padding-top: 20px;">
+             <legend>Hello {{app.user.username}}</legend>
+             <div class="span11">
+                    <div class="row">
+                          <div class="thumbnails">
+                               {% for entity in entities %}
+                                       <div class="span5" style="margin:0px 25px 25px 0px">
+                                             <div class="well">
+                                                   <div class="pull-right" ><a href="{{ path('diary_edit', { 'token': entity.token }) }}">编辑</a></div>
+                                                    <a href="{{ path('diary_show', { 'token': entity.token }) }}">{{ entity.title }}</a>
+                                             </div>
+                                      </div>
+                               {% endfor %}
+                          </div>
+                    </div>
+             </div>
+             <div class="span1"><a href="{{ path('diary_new') }}">新建</a></div>
+    </div>
+</div>
+    {% endblock %}

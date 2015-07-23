@@ -1,0 +1,65 @@
+{% extends '::layout.html.twig' %}
+
+{% block title %}
+        {{ entity.title }}-轮子
+{% endblock %}
+
+
+{% block stylesheets %}
+    {{ parent() }}
+<link rel="stylesheet" href="{{ asset('bundles/blogwo/css/img.css') }}" type="text/css" />
+<link rel="stylesheet" href="{{ asset('bundles/blogwo/css/gotop.css') }}" type="text/css" />
+<link rel="stylesheet" href="{{ asset('bundles/blogblog/css/article.css') }}" type="text/css" />
+{% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+ <script type="text/javascript">$(function() {$('.preview').append($('textarea').text());$('textarea').remove();}); </script>
+ <script type="text/javascript"  src="{{ asset('bundles/blogwo/js/gotop.js') }}"></script>
+{% endblock %}
+
+{% block body %}
+<div class="container main">
+	<div class="row"   style="padding-top: 20px;">
+		<div class="col-md-3">
+			<div class="side-left">
+				<div class="title">
+					<h4><a href="{{ path('community_blog_show', { 'id': entity.id }) }}">{{entity.title}}</a></h4>
+				</div>
+			
+			<div class="article-tree">
+				<ul>
+					{% for article in articles %}
+					{% if temp.id==article.id %}
+                                      <li><span class="glyphicon glyphicon-chevron-right"></span><a href="{{ path('community_blog_article_show', { 'id': article.id }) }}">{{ article.title }}</a></li>
+                                      {% else %}
+                                      <li><a href="{{ path('community_blog_article_show', { 'id': article.id }) }}">{{ article.title }}</a></li>
+                                      {% endif %}
+                                      {% endfor %}
+				</ul>
+			</div>
+			<div class="attention" style="margin-bottom:25px">
+		             {% if null!=weibo %}
+		      		<h4>本文作者</h4>
+		      		<wb:follow-button uid="{{ weibo }}" type="red_4" width="100%" height="64" ></wb:follow-button>
+		      		{% endif %}
+		      </div>
+		      <div class="share" style="margin-bottom:25px">
+		      		<h4>分享</h4>
+		      		<wb:share-button appkey="175468788" addition="full" type="button" pic="http%3A%2F%2Fwww.wocycle.com%2Fbundles%2Facmeto%2Fimages%2Fzuche.jpg" default_text="教程 - {{ entity.title }}" ralateUid="5478097122"></wb:share-button>
+		      </div>
+		      </div>
+		</div>
+		<div class="col-md-9"> 
+		       <legend>{{temp.title}}</legend>
+		       <div class="preview"></div>
+		      <textarea>{{ temp.blog }}</textarea>
+		      <legend></legend>
+		       <div class="comment">
+		       	<h4>评论</h4>
+                   		 <wb:comments url="auto" width="auto" appkey="175468788" border="n"></wb:comments>
+      			</div>
+		</div>
+	</div>
+</div>
+{% endblock %}

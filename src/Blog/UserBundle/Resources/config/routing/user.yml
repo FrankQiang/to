@@ -1,0 +1,18 @@
+user_home:
+    path:     /home
+    defaults: { _controller: "BlogUserBundle:User:home" }
+
+user_show:
+    path:     /show
+    defaults: { _controller: "BlogUserBundle:User:show" }
+
+user_edit:
+    path:     /{token}/edit
+    defaults: { _controller: "BlogUserBundle:User:edit" }
+
+user_update:
+    path:     /{token}/update
+    defaults: { _controller: "BlogUserBundle:User:update" }
+    methods:  [POST, PUT]
+
+

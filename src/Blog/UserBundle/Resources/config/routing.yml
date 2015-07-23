@@ -1,0 +1,4 @@
+blog_user_user:
+    resource: "@BlogUserBundle/Resources/config/routing/user.yml"
+    prefix:   /user
+

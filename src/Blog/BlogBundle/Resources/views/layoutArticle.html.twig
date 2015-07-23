@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html xmlns:wb="http://open.weibo.com/wb"  lang="zh-hans">
+<head>
+    <title>
+      {% block title %}
+                  与世界分享你的经验 - 轮子
+         {% endblock %}
+</title>
+      <meta name="description" content="轮子!骑行路线经验,高校骑行社区,自行车百科,高校二手自行车,租自行车,最酷的大学自行车服务社区"/>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+       <meta name="keywords" content="骑行路线经验,自行车百科,骑行社区,二手自行车,租自行车"/>
+       <meta name="author" content="轮子"/>
+    
+    
+
+{% block stylesheets %}
+       <link rel="stylesheet" type="text/css" href="{{ asset('bundles/blogblog/bootstrap/css/bootstrap-editor.css') }}">
+       <link rel="stylesheet" type="text/css" href="{{ asset('bundles/blogblog/css/style.css') }}">
+{% endblock %}
+{% block javascripts %}
+    <script type="text/javascript"  src="{{ asset('bundles/blogblog/js/jquery-2.1.1.min.js') }}"></script>
+    <script type="text/javascript"  src="{{ asset('bundles/blogblog/bootstrap/js/bootstrap-editor.js') }}"></script>
+{% endblock %}       
+
+<link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
+</head>
+
+<body>
+<div class="header">
+        
+        <div class="navbar navbar-static-top navbar-blue">
+            <div class="navbar-inner">
+                <div class="container">
+                {% block header %}
+                    <div style="margin-top:15px"><a href="{{ path('blog_wo_homepage') }}" class="brand">轮子</a></div>
+                    <div style="height:15px"></div>
+                    <ul class="nav pull-right">     
+                         <li><a href="{{ path('fos_user_security_logout') }}">退出</a></li>
+                   </ul>
+               {% endblock %}      
+                </div>
+            </div>
+        </div>
+</div>
+     {% block body %}{% endblock %}
+
+     <div class="footer">
+              <div class="container">
+                     <div class="row">
+                            <div class="span6">
+                                          <div><span><a href="{{ path('blog_wo_about')}}">关于我们</a></span><span>QQ: 2971274501 </span></div>
+                            </div>
+                            <div class="span6">
+                                          <div><span> <a href="http://www.miitbeian.gov.cn/" target="_blank" rel="nofollow">豫ICP证14029755号</a></span><span>Copyright © 轮子 2015 All Rights Reserved </span></div>
+                            </div>
+                     </div>
+              </div>
+</div>
+
+</body>
+</html>

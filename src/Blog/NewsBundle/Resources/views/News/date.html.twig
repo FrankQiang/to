@@ -1,0 +1,28 @@
+{% extends '::layout.html.twig' %}
+
+{% block title %}
+                   新闻-轮子
+{% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+<script>$(function() {if(($('.header').height()+$('.main').height()+$('.footer').height())<$('body').height())$('.main').css('height','100%');}); </script>
+{% endblock %}
+
+{% block body -%}
+<div class="main container">
+<nav>
+  <ul class="pager">
+    <li class="previous"><a href="{{ path('news_date', { 'date': yesterday }) }}"><span aria-hidden="true">&larr;</span> 前一天</a></li>
+    {% if noAfter != 0 %}
+    <li class="next"><a href="{{ path('news_date', { 'date': after }) }}">后一天<span aria-hidden="true">&rarr;</span></a></li>
+    {% endif %}
+  </ul>
+</nav>
+  <div class="list-group">
+  {% for entity in entities %}
+    <a href="{{ entity.url }}" class="list-group-item" target="_blank">{{entity.title}}</a>
+    {% endfor %}
+  </div>
+</div>
+    {% endblock %}

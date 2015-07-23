@@ -1,0 +1,30 @@
+diary:
+    path:     /
+    defaults: { _controller: "BlogBlogBundle:Diary:index" }
+
+diary_show:
+    path:     /{token}/show
+    defaults: { _controller: "BlogBlogBundle:Diary:show" }
+
+diary_new:
+    path:     /new
+    defaults: { _controller: "BlogBlogBundle:Diary:new" }
+
+diary_create:
+    path:     /create
+    defaults: { _controller: "BlogBlogBundle:Diary:create" }
+    methods:  POST
+
+diary_edit:
+    path:     /{token}/edit
+    defaults: { _controller: "BlogBlogBundle:Diary:edit" }
+
+diary_update:
+    path:     /{token}/update
+    defaults: { _controller: "BlogBlogBundle:Diary:update" }
+    methods:  [POST, PUT]
+
+diary_delete:
+    path:     /{token}/delete
+    defaults: { _controller: "BlogBlogBundle:Diary:delete" }
+    methods:  [POST, DELETE]

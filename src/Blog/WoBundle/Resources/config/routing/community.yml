@@ -1,0 +1,19 @@
+community_blog:
+    path:     /blog
+    defaults: { _controller: "BlogWoBundle:Community:blog" }
+
+community_blog_show:
+    path:     /blog/{id}/show
+    defaults: { _controller: "BlogWoBundle:Community:blogShow" }
+
+community_blog_article_show:
+    path:     /blog/article/{id}/show
+    defaults: { _controller: "BlogWoBundle:Community:blogArticleShow" }
+
+community_journal:
+    path:     /journal
+    defaults: { _controller: "BlogWoBundle:Community:journal" }
+
+community_journal_show:
+    path:     /journal/{id}/show
+    defaults: { _controller: "BlogWoBundle:Community:journalShow" }

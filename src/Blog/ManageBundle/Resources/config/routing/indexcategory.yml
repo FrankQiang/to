@@ -1,0 +1,30 @@
+index_category:
+    path:     /
+    defaults: { _controller: "BlogManageBundle:IndexCategory:index" }
+
+index_category_show:
+    path:     /{token}/show
+    defaults: { _controller: "BlogManageBundle:IndexCategory:show" }
+
+index_category_new:
+    path:     /new
+    defaults: { _controller: "BlogManageBundle:IndexCategory:new" }
+
+index_category_create:
+    path:     /create
+    defaults: { _controller: "BlogManageBundle:IndexCategory:create" }
+    methods:  POST
+
+index_category_edit:
+    path:     /{token}/edit
+    defaults: { _controller: "BlogManageBundle:IndexCategory:edit" }
+
+index_category_update:
+    path:     /{token}/update
+    defaults: { _controller: "BlogManageBundle:IndexCategory:update" }
+    methods:  [POST, PUT]
+
+index_category_delete:
+    path:     /{token}/delete
+    defaults: { _controller: "BlogManageBundle:IndexCategory:delete" }
+    methods:  [POST, DELETE]

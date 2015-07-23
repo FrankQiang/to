@@ -1,0 +1,7 @@
+search_blog:
+    path:     /blog
+    defaults: { _controller: "BlogWoBundle:Search:blog" }
+
+search_journal:
+    path:     /journal
+    defaults: { _controller: "BlogWoBundle:Search:journal" }

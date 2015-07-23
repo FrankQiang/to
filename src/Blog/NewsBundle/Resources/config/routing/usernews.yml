@@ -1,0 +1,39 @@
+user_news_status:
+    path:     /
+    defaults: { _controller: "BlogNewsBundle:UserNews:index" }
+
+user_news_status_show:
+    path:     /{id}/show
+    defaults: { _controller: "BlogNewsBundle:UserNews:show" }
+
+user_news_status_new:
+    path:     /new
+    defaults: { _controller: "BlogNewsBundle:UserNews:new" }
+
+user_news_status_create:
+    path:     /create
+    defaults: { _controller: "BlogNewsBundle:UserNews:create" }
+    methods:  POST
+
+user_news_status_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "BlogNewsBundle:UserNews:edit" }
+
+user_news_status_update:
+    path:     /{id}/update
+    defaults: { _controller: "BlogNewsBundle:UserNews:update" }
+    methods:  [POST, PUT]
+
+user_news_status_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "BlogNewsBundle:UserNews:delete" }
+    methods:  [POST, DELETE]
+
+user_news_status_like:
+    path:     /like/{id}
+    defaults: { _controller: "BlogNewsBundle:UserNews:like" }
+
+user_news_status_dislike:
+    path:     /dislike/{id}
+    defaults: { _controller: "BlogNewsBundle:UserNews:dislike" }
+

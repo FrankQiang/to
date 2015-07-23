@@ -1,0 +1,108 @@
+<!doctype html>
+<html xmlns:wb="http://open.weibo.com/wb" lang="zh-hans">
+<head>
+<title>
+      {% block title %}
+                  教程,随心笔记 - 轮子
+         {% endblock %}
+</title>
+      
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+       <meta name="keywords" content="教程,随心笔记"/>
+       <meta name="description" content="轮子!教程,随心笔记"/>
+       <meta name="author" content="轮子"/>
+	
+	{% block meta %}
+        {% endblock %}
+
+
+{% block stylesheets %}
+       <link rel="stylesheet" type="text/css" href="{{ asset('bundles/blogblog/bootstrap/css/bootstrap.css') }}">
+       <link rel="stylesheet" type="text/css" href="{{ asset('bundles/blogwo/css/style.css') }}"> 
+      {% endblock %}
+      {% block javascripts %}
+    <script type="text/javascript"  src="{{ asset('bundles/blogblog/js/jquery-2.1.1.min.js') }}"></script>
+    <script type="text/javascript"  src="{{ asset('bundles/blogblog/bootstrap/js/bootstrap.js') }}"></script>
+    <script src="http://tjs.sjs.sinajs.cn/open/api/js/wb.js?appkey=175468788" type="text/javascript" charset="utf-8"></script>
+{% endblock %}       
+
+<link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
+</head>
+<body>
+<div class="wo-go-top"><div class="wo-arrow"></div><div class="wo-stick"></div></div>
+       <div class="navbar navbar-inverse navbar-fixed-top header">
+              <div class="container">
+                     <div class="navbar-header">
+                            <button class="navbar-toggle" data-toggle="collapse" data-target="#responsive-navbar">
+                                   <span class="icon-bar"></span>
+                                   <span class="icon-bar"></span>
+                                   <span class="icon-bar"></span>
+                            </button>
+                            <a href="{{ path('blog_wo_homepage') }}" class="navbar-brand" title="轮子首页"><strong>轮子</strong></a>
+                     </div>
+                     <div class="collapse navbar-collapse" id="responsive-navbar">
+                            <ul class="nav navbar-nav">
+                                   <li><a href="{{ path('community_blog') }}" target="_blank"><strong>教程</strong></a></li>
+                                   <li><a href="{{ path('community_journal') }}" target="_blank"><strong>随笔</strong></a> 
+                             </ul>
+                            {% block tab %}
+                             <a href="{{ path('blog_new') }}" class="hidden-xs btn btn-primary btn-sm navbar-btn navbar-right">发表文章</a>
+                            {% endblock %}
+                            <div class="profile navbar-right">
+                                   <ul class="nav navbar-nav">
+                                          {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
+                                          <li class="dropdown">
+                                                 <a class="dropdown-toggle"data-toggle="dropdown" href="javascript:void(0)">{{app.user.username}}<b class="caret"></b></a>
+                                                 <ul class="dropdown-menu">
+                                                        <li><a href="{{ path('user_home') }}" class="my_info"  >我的主页</a></li> 
+                                                        <li><a href="{{ path('user_show') }}" class="my_info">帐号设置</a></li>   
+                                                        <li><a id="logout" href="{{ path('fos_user_security_logout') }}" class="logout" target="_self">退出</a></li>
+                                                 </ul>
+                                          </li>
+                                           {% else %}
+                                          <li><a href="{{ path('fos_user_security_login') }}" target="_blank">登录</a></li>
+                                          <li><a href="{{ path('fos_user_registration_register') }}" target="_blank">注册</a></li>
+                                          {% endif %}
+                                   </ul>
+                           </div>
+                            <form action="{{ path('search_blog') }}" class="navbar-form navbar-right">
+                                   <input type="text" placeholder="搜教程" class="form-control" name="query">
+                                   <button type="submit">
+                                      <span class="glyphicon glyphicon-search"></span>
+                                   </button>
+                            </form>
+                     </div>
+              </div>
+       </div>
+
+       
+
+{% block body %}
+{% endblock %}
+
+
+<div class="footer">
+        <div class="footer-about">
+              <div class="container">
+                     <div class="row">
+                            <div class="col-md-6">
+                                   <div class="row">
+                                          <div class="col-md-3"><span><a href="{{ path('blog_wo_about')}}">关于轮子</a></span></div>
+                                   </div>       
+                            </div>
+                            <div class="col-md-6">
+                                   <div class="row">
+                                          <div class="col-md-4"></div>
+                                          <div class="col-md-8"><span>Copyright © 轮子 2015 All Rights Reserved </span></div>
+                                    </div> 
+                            </div>
+                     </div>
+              </div>
+        </div>
+</div>
+       
+
+</body>
+</html>
