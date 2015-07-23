@@ -26,7 +26,7 @@
 /web/bundles/
 /web/uploads/
 /web/data/
-/web/phpmyadmin/
+/web/phpmyadmin
 
 # PHPUnit
 /app/phpunit.xml
