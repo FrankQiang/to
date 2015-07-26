@@ -15,6 +15,9 @@ Blog\BlogBundle\Entity\BlogArticle:
             nullable: true
         blog:
             type: text
+        chapter:
+            type: boolean
+            default: 0
         token:
             type: string
             length: 255

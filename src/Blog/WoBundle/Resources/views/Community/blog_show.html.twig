@@ -30,8 +30,12 @@
 			<div class="article-tree">
 				<ul>
 					{% for article in articles %}
+						{% if article.chapter == 1 %}
                                       <li><a href="{{ path('community_blog_article_show', { 'id': article.id }) }}">{{ article.title }}</a></li>
-                                      {% endfor %}
+                                      {% else %}
+                                      <li style="padding-left:15px"><a href="{{ path('community_blog_article_show', { 'id': article.id }) }}">{{ article.title }}</a></li>
+                                      {% endif %}
+                                {% endfor %}
 				</ul>
 			</div>
 			<div class="attention" style="margin-bottom:25px">

@@ -35,6 +35,11 @@ class BlogArticle
     private $blog;
 
     /**
+     * @var boolean
+     */
+    private $chapter;
+
+    /**
      * @var string
      */
     private $token;
@@ -153,6 +158,29 @@ class BlogArticle
     }
 
     /**
+     * Set chapter
+     *
+     * @param boolean $chapter
+     * @return BlogArticle
+     */
+    public function setChapter($chapter)
+    {
+        $this->chapter = $chapter;
+
+        return $this;
+    }
+
+    /**
+     * Get chapter
+     *
+     * @return boolean 
+     */
+    public function getChapter()
+    {
+        return $this->chapter;
+    }
+
+    /**
      * Set token
      *
      * @param string $token
@@ -237,4 +265,6 @@ class BlogArticle
     {
         $this->updated_at = new \DateTime();
     }
+    
+
 }
