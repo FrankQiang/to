@@ -31,10 +31,18 @@
 				<ul>
 					{% for article in articles %}
 					{% if temp.id==article.id %}
-                                      <li><span class="glyphicon glyphicon-chevron-right"></span><a href="{{ path('community_blog_article_show', { 'id': article.id }) }}">{{ article.title }}</a></li>
-                                      {% else %}
-                                      <li><a href="{{ path('community_blog_article_show', { 'id': article.id }) }}">{{ article.title }}</a></li>
+						{% if article.chapter == 1 %}
+							<li><span class="glyphicon glyphicon-chevron-right"></span><a href="{{ path('community_blog_article_show', { 'id': article.id }) }}">{{ article.title }}</a></li>
+						{% else %}
+							<li style="padding-left:15px"><span class="glyphicon glyphicon-chevron-right"></span><a href="{{ path('community_blog_article_show', { 'id': article.id }) }}">{{ article.title }}</a></li>
+						{% endif %}
+                                {% else %}
+						{% if article.chapter == 1 %}
+                                      	<li><a href="{{ path('community_blog_article_show', { 'id': article.id }) }}">{{ article.title }}</a></li>
+                                      {% else  %}
+                                      	<li style="padding-left:15px"><a href="{{ path('community_blog_article_show', { 'id': article.id }) }}">{{ article.title }}</a></li>
                                       {% endif %}
+                                {% endif %}
                                       {% endfor %}
 				</ul>
 			</div>

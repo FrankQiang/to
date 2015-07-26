@@ -20,6 +20,7 @@ class BlogArticleType extends AbstractType
              ->add('title',null,array('attr' => array('placeholder' => 'title'),'label' => '章节标题'))
              ->add('blog', 'textarea',array('attr' => array('style' => 'resize: none; font-family: Monaco,Menlo,Consolas,&quot;Courier New&quot;,monospace; width: 546px; height: 253px;')))
              ->add('token', 'hidden')
+             ->add('chapter',null,array('label' => '是章节?'))
         ;
     }
     
