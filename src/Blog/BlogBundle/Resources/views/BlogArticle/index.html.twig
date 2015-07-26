@@ -37,7 +37,11 @@
                            <div class="article-tree">
                                   <ul>
                                       {% for article in articles %}
-                                      <li><a href="{{ path('blog_article_show', { 'token': article.token }) }}">{{ article.title }}</a></li>
+                                      {% if article.chapter == 1 %}
+                                    <li><a href="{{ path('blog_article_show', { 'token': article.token }) }}">{{ article.title }}</a></li>
+                                  {% else  %}
+                                    <li style="padding-left:15px"><a href="{{ path('blog_article_show', { 'token': article.token }) }}">{{ article.title }}</a></li>
+                                  {% endif %}
                                       {% endfor %}
                                        <li><a href="{{ path('blog_article_new', { 'id': entity.id }) }}"><span class="icon-plus-sign"></span>添加章节</a></li>
                                   </ul>
