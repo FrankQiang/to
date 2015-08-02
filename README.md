@@ -18,6 +18,22 @@
 
 [symfony2项目教程](https://github.com/happen-zhang/symfony2-jobeet-tutorial)
 
+=====
+
+#### 实现
+
+* 前端 – bootstrap
+
+* 采用 – markdown – 编辑
+
+* 搭建用户系统
+
+* AWS信件发送
+
+* 搭建搜索系统
+
+* 新浪评论框
+
 
 
 
