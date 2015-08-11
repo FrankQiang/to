@@ -9,6 +9,10 @@
 <script>$(function() {if(($('.header').height()+$('.main').height()+$('.footer').height())<$('body').height())$('.main').css('height','100%');}); </script>
 {% endblock %}
 
+{% block tab %}
+       <a href="{{ path('news_new') }}" class="hidden-xs btn btn-primary btn-sm navbar-btn navbar-right">添加新闻</a>
+{% endblock %}
+
 {% block body -%}
 <div class="main container">
 <nav>

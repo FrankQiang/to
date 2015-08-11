@@ -234,7 +234,7 @@ class UserNewsController extends Controller
         $userNews = $em->getRepository('BlogNewsBundle:UserNews')->findOneBy(array('news_id' => $id));
 
         if ($userNews) {
-            $newuserNews->setStatus(1);
+            $userNews->setStatus(1);
             $em->flush();
         }else{
             $user = $this->getUser();
@@ -244,7 +244,7 @@ class UserNewsController extends Controller
             }
             
             $user_id=$user->getId();
-
+        
             $entity = new UserNews();
             $entity->setUserId($user_id);
             $entity->setNewsId($id);
