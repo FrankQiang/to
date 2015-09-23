@@ -24,7 +24,11 @@ class CommunityController extends Controller
     {
         $em = $this->getDoctrine()->getManager();
 
-        $entities = $em->getRepository('BlogBlogBundle:Blog')->findAll();
+        // $entities = $em->getRepository('BlogBlogBundle:Blog')->findAll();
+        $query = $em->createQuery(
+            'SELECT b FROM BlogBlogBundle:Blog b ORDER BY  b.click  DESC'
+    );
+        $entities = $query->getResult();
 
         for ($i=0; $i < count($entities); $i++) { 
             $entities[$i]->setBlog(mb_strcut(preg_replace('/\*||\#||\>||\`||\[\S*\)/i','',$entities[$i]->getBlog()),0,260,'utf-8').'...');
