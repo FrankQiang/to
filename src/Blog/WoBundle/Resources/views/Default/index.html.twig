@@ -37,7 +37,7 @@
           </div>
     </div>
     <div class="row" style="padding-top:50px;margin-bottom:100px">
-      <!-- <div class="col-md-3 left-content" style="padding-top:30px">
+      <div class="col-md-3 left-content" style="padding-top:30px">
       <div class="left-news">
         <div class="news-content">
         <div class="turn-news">
@@ -69,9 +69,8 @@
         <a href="{{ path('news') }}" target="_blank"><span>>>更多</span></a>
       </div>
       
-      </div> -->
-      <div class="col-md-2"></div>
-      <div class="col-md-10">
+      </div>
+      <div class="col-md-9">
       {% for entity in entities%}
       <div class="category-webadd">
       		<span style="font-size:16px">{{ entity.title }}</span><a href="{{ path('index_webpage_new', { 'id': entity.id }) }}" class="pull-right add-webpage" target="_blank" ><span class="glyphicon glyphicon-plus"></span>添加</a>
