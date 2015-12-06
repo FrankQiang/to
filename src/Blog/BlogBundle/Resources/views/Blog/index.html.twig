@@ -21,21 +21,21 @@
 {% block body -%}
 
 <div class="container main">
-      	<div class="row" style="padding-top: 20px;">
-    		<legend>Hello {{app.user.username}}</legend>
-    		<div class="span12">
-    			<div class="row">
-    				{% for entity in entities %}
-    				<div class="span6">
-    					<div class="row">
-    						<div class="span5 well">
-    							<a href="{{ path('blog_article', { 'token': entity.token }) }}">{{ entity.title }}</a>
-    						</div>
-    					</div>        
-             			</div>
-             			{% endfor %}
-        		</div>
+    <div class="row" style="padding-top: 20px;">
+        <legend>Hello {{app.user.username}}</legend>
+            <div class="span12">
+                <div class="row">
+                    {% for entity in entities %}
+                        <div class="span6">
+                            <div class="row">
+                                <div class="span5 well">
+                                    <a href="{{ path('blog_article', { 'token': entity.token }) }}">{{ entity.title }}</a>
+                                </div>
+                            </div>        
+                        </div>
+                    {% endfor %}
+                </div>
             </div>
-       </div>
+    </div>
 </div>
 {% endblock %}

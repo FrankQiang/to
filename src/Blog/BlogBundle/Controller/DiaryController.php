@@ -36,7 +36,12 @@ class DiaryController extends Controller
         $user_id=$user->getId();
         $em = $this->getDoctrine()->getManager();
 
-        $entities = $em->getRepository('BlogBlogBundle:Diary')->findBy(array('user_id' => $user_id));
+        $query = $em->createQuery(
+            'SELECT d FROM BlogBlogBundle:Diary d WHERE d.user_id = '.$user_id.' ORDER BY  d.click  DESC'
+    );
+        $entities = $query->getResult();
+
+        //$entities = $em->getRepository('BlogBlogBundle:Diary')->findBy(array('user_id' => $user_id));
 
         return $this->render('BlogBlogBundle:Diary:index.html.twig', array(
             'entities' => $entities,

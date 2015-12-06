@@ -36,7 +36,12 @@ class BlogController extends Controller
         $user_id=$user->getId();
         $em = $this->getDoctrine()->getManager();
 
-        $entities = $em->getRepository('BlogBlogBundle:Blog')->findBy(array('user_id' => $user_id));
+        $query = $em->createQuery(
+            'SELECT b FROM BlogBlogBundle:Blog b WHERE b.user_id ='.$user_id.' ORDER BY  b.click  DESC'
+    );
+        $entities = $query->getResult();
+
+        //$entities = $em->getRepository('BlogBlogBundle:Blog')->findBy(array('user_id' => $user_id));
 
         return $this->render('BlogBlogBundle:Blog:index.html.twig', array(
             'entities' => $entities,
