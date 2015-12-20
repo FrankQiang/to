@@ -6,15 +6,6 @@ html, body{
     height:100%;
 }
 
-a {
-    color:#FF8A00;
-}
-
-a:hover {
-    color:#FF8A00;
-}
-
-
 .navbar-inverse .navbar-form{
 	position: relative;
 }

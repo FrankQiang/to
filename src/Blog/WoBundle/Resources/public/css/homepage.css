@@ -7,7 +7,7 @@
 }
 
 .btn-group-justified a:hover{
-	color: #FF8A00;
+	color: #286090;
 	text-decoration: underline;
 }
 
@@ -38,7 +38,7 @@
 }
 
 .left-news .turn-news a:hover{
-	color: #FF8A00;
+	color: #286090;
 }
 
 .left-content a{
@@ -47,7 +47,7 @@
 }
 
 .news-content .panel-body a:hover{
-	color: #FF8A00;
+	color: #286090;
 }
 
 .news-content .panel-footer .heart :hover{
